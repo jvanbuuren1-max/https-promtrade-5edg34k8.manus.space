@@ -4,11 +4,17 @@ Buy, sell, and trade high-quality AI prompts. The premier marketplace for prompt
 
 ## Features
 
-- **Landing Page** - Modern hero section, category browser, featured prompts, and CTA
-- **Prompt Listings** - Browse, search, filter by category, and sort prompts
-- **Prompt Detail** - Full prompt preview, pricing, ratings, and related prompts
+- **Landing Page** - Hero section, category browser, featured prompts, how-it-works, and CTA
+- **Browse Prompts** - Search, filter by category, and sort by rating/price/reviews
+- **Prompt Detail** - Tabbed view with overview, reviews, and Q&A; add to cart; related prompts
+- **Shopping Cart** - Add/remove items, order summary, checkout flow
+- **User Dashboard** - Purchased prompts, seller listings, profile settings, payout config
+- **Create Listing** - Full prompt creation form with title, description, category, price, tags, and prompt text
 - **Sell Prompts** - Information page for sellers with benefits and how-to guide
-- **Sign In / Sign Up** - Authentication page with social login and email/password
+- **About** - Company mission, values, team, and stats
+- **Sign In / Sign Up** - Social login (Google, GitHub) and email/password
+- **404 Page** - Custom not-found page
+- **Loading States** - Skeleton loading for all pages
 - **Responsive Design** - Fully responsive across mobile, tablet, and desktop
 
 ## Tech Stack
@@ -32,20 +38,29 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ```
 src/
   app/
-    page.tsx              # Landing page
-    layout.tsx            # Root layout with navbar and footer
-    globals.css           # Global styles and Tailwind imports
+    page.tsx                # Landing page
+    layout.tsx              # Root layout with navbar, footer, cart provider
+    loading.tsx             # Global loading state
+    not-found.tsx           # Custom 404 page
+    globals.css             # Global styles and Tailwind imports
+    about/page.tsx          # About page
+    cart/page.tsx            # Shopping cart
+    create/page.tsx          # Create prompt listing
+    dashboard/page.tsx       # User dashboard
     prompts/
-      page.tsx            # Prompt listings with search and filters
-      [id]/page.tsx       # Individual prompt detail page
-    sell/page.tsx          # Sell prompts information page
-    signin/page.tsx        # Sign in / sign up page
+      page.tsx              # Browse prompts with search and filters
+      loading.tsx           # Skeleton loading for prompts
+      [id]/page.tsx         # Prompt detail with reviews and Q&A tabs
+    sell/page.tsx            # Sell prompts info page
+    signin/page.tsx          # Sign in / sign up page
   components/
-    Navbar.tsx            # Navigation bar
-    Footer.tsx            # Footer
-    PromptCard.tsx        # Prompt card component
+    Navbar.tsx              # Navigation bar with cart badge
+    Footer.tsx              # Footer
+    PromptCard.tsx          # Prompt card component
+  context/
+    CartContext.tsx          # Shopping cart state management
   data/
-    prompts.ts            # Sample prompt data and types
+    prompts.ts              # Sample prompt data and types
 ```
 
 ## License
